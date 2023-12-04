@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Array Animation</title>
+</head>
+<body> 
+  <div class="container">
+    <div class="array-container" id="arrayContainer"></div>
+
+<div class="controls">
+  <label for="elementInput">Element:</label>
+  <input type="text" id="elementInput" placeholder="Enter element">
+  <div class="button-container">
+    <button class="insert-button" onclick="insertElement()">Insert</button>
+    <button class="delete-button" onclick="deleteElement()">Delete</button>
+  </div>
+  <p>Array Size: <span id="arraySize">0</span></p>
+  <p id="lastDeletedElement">Last Deleted Element: None</p>
+  <label for="indexInput">Index:</label>
+  <input type="number" id="indexInput" placeholder="Enter index">
+  <button onclick="getElementAtIndex()">Get Element</button>
+  <p id="elementAtIndex">Element at Index: </p>
+</div>
+  </div>
+</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
