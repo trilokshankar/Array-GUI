@@ -20,7 +20,7 @@ body {
   background-color: #f0f0f0;
   padding: 25px;
   margin-bottom: 50px;
-  border-radius: 50px;
+  border-radius: 100px;
   
 }
 
@@ -82,3 +82,54 @@ body {
   padding: 12px;
   margin-right: 10px;
 }
+.controls {
+  margin-top: 20px;
+}
+
+#elementInput {
+  border-radius: 100px; 
+  padding: 10px;
+  margin-right: 10px;
+}
+
+#indexInput {
+  padding: 10px;
+  margin-right: 10px;
+  
+  border-radius: 100px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.insert-button {
+  background-color: #4CAF50; 
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+.delete-button {
+  background-color: #f44336; /* Red */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 100px;
+}
+

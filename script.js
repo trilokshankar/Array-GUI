@@ -1,5 +1,6 @@
 let array = [];
 let lastDeletedElement = null;
+let displayedElementIndex = null;
 
 function renderArray() {
   const arrayContainer = document.getElementById('arrayContainer');
@@ -11,6 +12,7 @@ function renderArray() {
     arrayElement.innerText = `${element} (${index})`;
     arrayContainer.appendChild(arrayElement);
 
+    // Trigger the animation by adding the 'show' class after a short delay
     setTimeout(() => {
       arrayElement.classList.add('show');
     }, 100 * index);
@@ -41,6 +43,7 @@ function deleteElement() {
     lastDeletedElement = array.pop();
     renderArray();
     updateLastDeletedElement();
+    resetDisplayedElement();
   }
 }
 
@@ -49,18 +52,43 @@ function updateLastDeletedElement() {
   lastDeletedElementContainer.innerText = `Last Deleted Element: ${lastDeletedElement || 'None'}`;
 }
 
-renderArray();
-updateLastDeletedElement();
-
-function getElementAtIndex() {
+function displayElementAtIndex() {
   const indexInput = document.getElementById('indexInput');
   const index = parseInt(indexInput.value);
 
   if (!isNaN(index) && index >= 0 && index < array.length) {
-    const elementAtIndexContainer = document.getElementById('elementAtIndex');
-    elementAtIndexContainer.innerText = `Element at Index ${index}: ${array[index]}`;
+    displayedElementIndex = index;
+    updateDisplayedElement();
   } else {
     alert('Invalid index. Please enter a valid index.');
+  }
+}
+
+function updateDisplayedElement() {
+  const displayedElementContainer = document.getElementById('displayedElement');
+  displayedElementContainer.innerText = `Displayed Element: ${array[displayedElementIndex]}`;
+}
+
+
+
+function resetDisplayedElement() {
+  displayedElementIndex = null;
+  const displayedElementContainer = document.getElementById('displayedElement');
+  displayedElementContainer.innerText = 'Displayed Element: None';
+}
+
+renderArray();
+updateLastDeletedElement();
+resetDisplayedElement();
+
+function deleteDisplayedElement() {
+  if (displayedElementIndex !== null) {
+    // Store the last deleted element
+    lastDeletedElement = array.splice(displayedElementIndex, 1)[0];
+    renderArray();
+    updateDisplayedElement();
+    updateLastDeletedElement();
+    resetDisplayedElement();
   }
 }
 
